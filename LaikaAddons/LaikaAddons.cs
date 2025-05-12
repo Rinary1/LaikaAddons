@@ -131,12 +131,9 @@ namespace LaikaAddons
             cigLighterObject = car.Find("CigLighter").gameObject;
             lightKnobObject = car.Find("gimballLock/WindowWipers").gameObject;
 
-            var cigLighterObj = Instantiate(LoadAsset<GameObject>("ciglighter", "cigLighter", "", ".prefab"));
-            var indicatorObj = Instantiate(LoadAsset<GameObject>("indicatorlever", "indicatorLever", "", ".prefab"));
-            var lightsKnob = Instantiate(LoadAsset<GameObject>("lightknob", "lightKnob", "", ".prefab"));
-
             if (GetToggleValue("CigLighterFix") == true)
             {
+                var cigLighterObj = Instantiate(LoadAsset<GameObject>("ciglighter", "cigLighter", "", ".prefab"));
                 Mesh cigMesh = cigLighterObj.GetComponent<MeshFilter>().sharedMesh;
                 cigLighterObject.GetComponent<MeshFilter>().mesh = cigMesh;
                 cigLighterObject.GetComponent<MeshRenderer>().material = commonMaterial;
@@ -146,6 +143,8 @@ namespace LaikaAddons
 
             if (GetToggleValue("AddTurnSignals") == true)
             {
+                var indicatorObj = Instantiate(LoadAsset<GameObject>("indicatorlever", "indicatorLever", "", ".prefab"));
+                var lightsKnob = Instantiate(LoadAsset<GameObject>("lightknob", "lightKnob", "", ".prefab"));
                 Mesh lightsKnobMesh = lightsKnob.GetComponent<MeshFilter>().sharedMesh;
                 lightKnobObject.GetComponent<MeshFilter>().mesh = lightsKnobMesh;
                 lightKnobObject.GetComponent<MeshRenderer>().material = commonMaterial;
@@ -183,9 +182,9 @@ namespace LaikaAddons
 
                 Vector3[] turnSignalLeverPositions = new Vector3[3];
 
-                turnSignalLeverPositions[0] = orgTurnSignalScript.position[0];
-                turnSignalLeverPositions[1] = orgTurnSignalScript.position[1];
-                turnSignalLeverPositions[2] = new Vector3(81.1f, -15, -90);
+                turnSignalLeverPositions[0] = new Vector3(81.1f, 0.0f, -90.0f);
+                turnSignalLeverPositions[1] = new Vector3(66.1f, 0.0f, -90.0f);
+                turnSignalLeverPositions[2] = new Vector3(96.1f, 0.0f, -90.0f);
 
                 turnSignalScript.position = turnSignalLeverPositions;
 
